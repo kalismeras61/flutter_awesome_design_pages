@@ -29,7 +29,7 @@ class _FirstLoginPageState extends State<FirstLoginPage> {
                 ),
                 Text(
                   "GROMING",
-                  style: TextStyle(color: Colors.white, fontSize: 14),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 SizedBox(
                   height: 10,
@@ -61,7 +61,7 @@ class _FirstLoginPageState extends State<FirstLoginPage> {
           ClipPath(
             clipper: CustomBackClip(),
             child: Container(
-              color: Colors.greenAccent,
+              color: Colors.greenAccent.shade400,
               width: double.infinity,
               height: double.infinity,
             ),
@@ -69,67 +69,127 @@ class _FirstLoginPageState extends State<FirstLoginPage> {
           Column(
             children: <Widget>[
               Expanded(
-                flex: 2,
+                flex: 5,
                 child: Container(
                   height: 400,
                   width: double.infinity,
                   child: pageView(),
                 ),
               ),
-              Card(
-                elevation: 0.5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                color: Colors.white,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width - 60,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.red,
+              Expanded(
+                flex: 3,
+                child: Card(
+                  elevation: 0.5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  color: Colors.white,
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
+                            color: Colors.white,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "tailslife",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 36,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Sign Up. You know you want to.",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                "It will take less than a minutes",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 40,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "tailslife",
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 36,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Tailslife",
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                            ),
-                          ),
-                          Text(
-                            "Tailslife",
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                        ],
+                      Container(
+                        width: MediaQuery.of(context).size.width - 60,
+                        height: 1,
+                        color: Colors.grey.shade400,
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 60,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(15),
+                              bottomRight: Radius.circular(15),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "LOG IN",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.grey,
+                                  fontFamily: "Roboto",
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Container(
+                                height: 80,
+                                width: 1,
+                                color: Colors.grey.shade400,
+                              ),
+                              Text(
+                                "SIGN UP",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.grey,
+                                  fontFamily: "Roboto",
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 50,
               )
             ],
           ),

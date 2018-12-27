@@ -8,6 +8,7 @@ void main() => runApp(
         theme: ThemeData(
           primarySwatch: Colors.red,
           primaryColor: Colors.grey,
+          fontFamily: "Roboto",
         ),
       ),
     );
