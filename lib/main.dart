@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/first_page.dart';
 
 void main() => runApp(
       MaterialApp(
         home: CustomCardPage(),
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          primaryColor: Colors.grey,
+        ),
       ),
     );
 
@@ -143,7 +148,8 @@ class _CustomCardPageState extends State<CustomCardPage> {
             Expanded(
               flex: 5,
               child: GestureDetector(
-                onTap: () => print("tapped"),
+                onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => FirstLoginPage())),
                 child: Text(
                   "Browse Gift Cards",
                   style: TextStyle(
