@@ -9,6 +9,9 @@ void main() => runApp(
           primarySwatch: Colors.red,
           primaryColor: Colors.green.shade400,
           fontFamily: "Roboto",
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          ),
         ),
       ),
     );

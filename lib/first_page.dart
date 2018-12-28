@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutter_page_indicator/flutter_page_indicator.dart';
 import 'package:testapp/energy_card.dart';
 
 class FirstLoginPage extends StatefulWidget {
@@ -221,7 +220,6 @@ class CustomBackClip extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper oldClipper) {
-    // TODO: implement shouldReclip
     return true;
   }
 }

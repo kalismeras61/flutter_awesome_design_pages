@@ -47,10 +47,10 @@ class _AnimatedFabState extends State<AnimatedFab>
             alignment: Alignment.center,
             children: <Widget>[
               _buildExpandedBackground(),
-              _buildOption(Icons.check_circle, 0.0),
-              _buildOption(Icons.flash_on, -math.pi / 3),
-              _buildOption(Icons.access_time, -2 * math.pi / 3),
-              _buildOption(Icons.error_outline, math.pi),
+              _buildOption(Icons.check_circle, 0.0, widget.onClick),
+              _buildOption(Icons.flash_on, -math.pi / 3, widget.onClick),
+              _buildOption(Icons.access_time, -2 * math.pi / 3, widget.onClick),
+              _buildOption(Icons.error_outline, math.pi, widget.onClick),
               _buildFabCore(),
             ],
           );
@@ -59,7 +59,7 @@ class _AnimatedFabState extends State<AnimatedFab>
     );
   }
 
-  Widget _buildOption(IconData icon, double angle) {
+  Widget _buildOption(IconData icon, double angle, VoidCallback onTap) {
     if (_animationController.isDismissed) {
       return Container();
     }
@@ -72,7 +72,7 @@ class _AnimatedFabState extends State<AnimatedFab>
       child: new Align(
         alignment: Alignment.topCenter,
         child: new IconButton(
-          onPressed: _onIconClick,
+          onPressed: onTap,
           icon: new Transform.rotate(
             angle: -angle,
             child: new Icon(
@@ -104,8 +104,9 @@ class _AnimatedFabState extends State<AnimatedFab>
     double scaleFactor = 2 * (_animationController.value - 0.5).abs();
     return Container(
       height: 40,
+      width: 40,
       child: new FloatingActionButton(
-        elevation: 0,
+        heroTag: null,
         onPressed: _onFabTap,
         child: new Transform(
           alignment: Alignment.center,
