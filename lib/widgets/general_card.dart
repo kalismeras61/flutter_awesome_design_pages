@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/widgets/animated_fab.dart';
 import 'package:testapp/widgets/energy_clipper.dart';
 
 class GeneralCard extends StatefulWidget {
@@ -47,7 +48,7 @@ class _GeneralCardState extends State<GeneralCard> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Text(
                         "Total Energy Consumption \n of Galaxy SOHO",
@@ -148,6 +149,12 @@ class _GeneralCardState extends State<GeneralCard> {
             ),
           ),
         ),
+        Positioned(
+          left: 0,
+          right: -100,
+          bottom: 23,
+          child: AnimatedFab(),
+        )
       ],
     );
   }

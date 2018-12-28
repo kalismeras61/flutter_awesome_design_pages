@@ -20,7 +20,7 @@ class _EnergyCardPageState extends State<EnergyCardPage> {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GridView.count(
-            childAspectRatio: 0.75,
+            childAspectRatio: 0.7,
             shrinkWrap: true,
             crossAxisCount: 2,
             crossAxisSpacing: 5,
