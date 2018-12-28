@@ -139,17 +139,6 @@ class _FirstLoginPageState extends State<FirstLoginPage> {
   }
 }
 
-class Page1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Page1"),
-      ),
-    );
-  }
-}
-
 class CustomBackClip extends CustomClipper<Path> {
   @override
   getClip(Size size) {
