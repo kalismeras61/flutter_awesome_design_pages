@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_page_indicator/flutter_page_indicator.dart';
+import 'package:testapp/energy_card.dart';
 
 class FirstLoginPage extends StatefulWidget {
   @override
@@ -157,14 +158,21 @@ class _FirstLoginPageState extends State<FirstLoginPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Text(
-                                "LOG IN",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.grey,
-                                  fontFamily: "Roboto",
-                                  fontWeight: FontWeight.w700,
+                              GestureDetector(
+                                child: Text(
+                                  "LOG IN",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.grey,
+                                    fontFamily: "Roboto",
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
+                                onTap: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => EnergyCardPage(),
+                                      ),
+                                    ),
                               ),
                               Container(
                                 height: 80,

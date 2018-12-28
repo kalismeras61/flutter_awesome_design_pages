@@ -7,7 +7,7 @@ void main() => runApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.red,
-          primaryColor: Colors.grey,
+          primaryColor: Colors.green.shade400,
           fontFamily: "Roboto",
         ),
       ),
@@ -150,7 +150,10 @@ class _CustomCardPageState extends State<CustomCardPage> {
               flex: 5,
               child: GestureDetector(
                 onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => FirstLoginPage())),
+                      MaterialPageRoute(
+                        builder: (context) => FirstLoginPage(),
+                      ),
+                    ),
                 child: Text(
                   "Browse Gift Cards",
                   style: TextStyle(
