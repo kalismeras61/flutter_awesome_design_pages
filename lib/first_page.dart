@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:testapp/energy_card.dart';
+import 'package:testapp/lock_screen.dart';
 
 class FirstLoginPage extends StatefulWidget {
   @override
@@ -178,13 +179,20 @@ class _FirstLoginPageState extends State<FirstLoginPage> {
                                 width: 1,
                                 color: Colors.grey.shade400,
                               ),
-                              Text(
-                                "SIGN UP",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.grey,
-                                  fontFamily: "Roboto",
-                                  fontWeight: FontWeight.w700,
+                              GestureDetector(
+                                onTap: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => MyHomePage(),
+                                      ),
+                                    ),
+                                child: Text(
+                                  "SIGN UP",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.grey,
+                                    fontFamily: "Roboto",
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ],
