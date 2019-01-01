@@ -21,6 +21,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   page_transition: ^1.0.6
   flutter_swiper: ^1.1.4
+  flutter_lock_screen: ^1.0.3
 
 
 dev_dependencies:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/first_page.dart';
-import 'package:testapp/lock_screen.dart';
+import 'package:testapp/empty_page.dart';
+import 'package:flutter_lock_screen/flutter_lock_screen.dart';
 
 class PassCodeScreen extends StatefulWidget {
   PassCodeScreen({Key key, this.title}) : super(key: key);
@@ -14,29 +14,32 @@ class PassCodeScreen extends StatefulWidget {
 class _PassCodeScreenState extends State<PassCodeScreen> {
   @override
   Widget build(BuildContext context) {
-    var myCodes = [1, 2, 3, 4];
-    return new Scaffold(
-      body: LockScreen(
-          title: "This is Screet",
-          codeLength: myCodes.length,
-          bgImage: "images/pass_code_bg.jpg",
-          fingerFunction: () => print("dede"),
-          backgroundColor: new Color(0xff202835),
-          foregroundColor: Colors.white,
-          codeVerify: (List<int> codes) async {
-            for (int i = 0; i < myCodes.length; i++) {
-              if (codes[i] != myCodes[i]) {
-                return false;
-              }
+    var myPass = [1, 2, 3, 4];
+    return LockScreen(
+        title: "This is Screet",
+        passLength: myPass.length,
+        bgImage: "images/pass_code_bg.jpg",
+        fingerPrintImage: "images/fingerprint.png",
+        showFingerPass: true,
+        fingerFunction: () => print("dede"),
+        borderColor: Colors.white,
+        showWrongPassDialog: true,
+        wrongPassContent: "Wrong pass please try again.",
+        wrongPassTitle: "Opps!",
+        wrongPassCancelButtonText: "Cancel",
+        passCodeVerify: (List<int> passcode) async {
+          for (int i = 0; i < myPass.length; i++) {
+            if (passcode[i] != myPass[i]) {
+              return false;
             }
-            return true;
-          },
-          onSuccess: () {
-            Navigator.of(context).pushReplacement(
-                new MaterialPageRoute(builder: (BuildContext context) {
-              return FirstLoginPage();
-            }));
-          }),
-    );
+          }
+          return true;
+        },
+        onSuccess: () {
+          Navigator.of(context).pushReplacement(
+              new MaterialPageRoute(builder: (BuildContext context) {
+            return EmptyPage();
+          }));
+        });
   }
 }
