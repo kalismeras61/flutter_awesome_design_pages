@@ -1,14 +1,12 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:testapp/first_page.dart';
 
 typedef void DeleteCode();
 typedef Future<bool> CodeVerify(List<int> codes);
 
 class LockScreen extends StatefulWidget {
-  final VoidCallback onVerified;
+  final VoidCallback onSuccess;
   final VoidCallback fingerFunction;
   final String title;
   final int codeLength;
@@ -18,7 +16,7 @@ class LockScreen extends StatefulWidget {
   final CodeVerify codeVerify;
 
   LockScreen(
-      {this.onVerified,
+      {this.onSuccess,
       this.title,
       this.backgroundColor,
       this.foregroundColor,
@@ -32,7 +30,7 @@ class LockScreen extends StatefulWidget {
         assert(backgroundColor != null),
         assert(foregroundColor != null),
         assert(codeVerify != null),
-        assert(onVerified != null);
+        assert(onSuccess != null);
 
   @override
   _LockScreenState createState() => _LockScreenState();
@@ -57,7 +55,7 @@ class _LockScreenState extends State<LockScreen> {
             setState(() {
               _currentState = 1;
             });
-            widget.onVerified();
+            widget.onSuccess();
           } else {
             _currentState = 2;
             new Timer(new Duration(milliseconds: 1000), () {
@@ -433,45 +431,6 @@ class CodePanel extends StatelessWidget {
       child: new Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[circlesRow]),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    var myCodes = [1, 2, 3, 4];
-    return new Scaffold(
-      body: LockScreen(
-          title: "Enter Your Passcode",
-          codeLength: myCodes.length,
-          bgImage: "images/pass_code_bg.jpg",
-          fingerFunction: () => print("dede"),
-          backgroundColor: new Color(0xff202835),
-          foregroundColor: Colors.white,
-          codeVerify: (List<int> codes) async {
-            for (int i = 0; i < myCodes.length; i++) {
-              if (codes[i] != myCodes[i]) {
-                return false;
-              }
-            }
-            return true;
-          },
-          onVerified: () {
-            Navigator.of(context).pushReplacement(
-                new MaterialPageRoute(builder: (BuildContext context) {
-              return FirstLoginPage();
-            }));
-          }),
     );
   }
 }
