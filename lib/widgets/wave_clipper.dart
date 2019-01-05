@@ -33,7 +33,7 @@ class _ColorCurveBodyState extends State<ColorCurveBody>
   void initState() {
     super.initState();
     animationController = new AnimationController(
-        vsync: this, duration: new Duration(seconds: 2));
+        vsync: this, duration: new Duration(milliseconds: 1500));
     animationController.addListener(() {
       animList1.clear();
       for (double i = 0; i <= widget.size.width.toInt(); i++) {

@@ -12,7 +12,7 @@ class _AnimatedWaveCardState extends State<AnimatedWaveCard> {
     return Scaffold(
       backgroundColor: Color(0xFF0d30c7),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(20.0),
         child: GridView.count(
           childAspectRatio: 1,
           crossAxisSpacing: 20,
@@ -33,7 +33,7 @@ class _AnimatedWaveCardState extends State<AnimatedWaveCard> {
               width: 80,
               actual: 3000,
               goal: 6000,
-              waveColor: Colors.green,
+              waveColor: Color(0xFF507d08),
             ),
             AnimatedWaveGeneralCard(
               height: 80,
