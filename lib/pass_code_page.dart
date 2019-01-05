@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:testapp/empty_page.dart';
 import 'package:flutter_lock_screen/flutter_lock_screen.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:flutter/services.dart';
 
 class PassCodeScreen extends StatefulWidget {
   PassCodeScreen({Key key, this.title}) : super(key: key);
@@ -12,6 +16,28 @@ class PassCodeScreen extends StatefulWidget {
 }
 
 class _PassCodeScreenState extends State<PassCodeScreen> {
+  bool isFingerprint = false;
+
+  Future<Null> biometrics() async {
+    final LocalAuthentication auth = new LocalAuthentication();
+    bool authenticated = false;
+
+    try {
+      authenticated = await auth.authenticateWithBiometrics(
+          localizedReason: 'Scan your fingerprint to authenticate',
+          useErrorDialogs: true,
+          stickyAuth: false);
+    } on PlatformException catch (e) {
+      print(e);
+    }
+    if (!mounted) return;
+    if (authenticated) {
+      setState(() {
+        isFingerprint = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var myPass = [1, 2, 3, 4];
@@ -21,7 +47,9 @@ class _PassCodeScreenState extends State<PassCodeScreen> {
         bgImage: "images/pass_code_bg.jpg",
         fingerPrintImage: "images/fingerprint.png",
         showFingerPass: true,
-        fingerFunction: () => print("dede"),
+        fingerFunction: biometrics,
+        fingerVerify: isFingerprint,
+        numColor: Colors.blue,
         borderColor: Colors.white,
         showWrongPassDialog: true,
         wrongPassContent: "Wrong pass please try again.",

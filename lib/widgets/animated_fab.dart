@@ -141,9 +141,4 @@ class _AnimatedFabState extends State<AnimatedFab>
       close();
     }
   }
-
-  _onIconClick() {
-    widget.onClick();
-    close();
-  }
 }
