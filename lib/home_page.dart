@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/animated_wave_card.dart';
+import 'package:testapp/credit_card_page.dart';
 import 'package:testapp/custom_gift_card.dart';
 import 'package:testapp/energy_card.dart';
 import 'package:testapp/first_page.dart';
@@ -70,6 +71,16 @@ class HomePage extends StatelessWidget {
               }));
             },
             "Animated Wave Widget",
+          ),
+          buildCardWithIcon(
+            Icons.credit_card,
+            context,
+            () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CreditCardPage();
+              }));
+            },
+            "Login Page",
           ),
         ],
       ),

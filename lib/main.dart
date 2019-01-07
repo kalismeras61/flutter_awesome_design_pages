@@ -6,6 +6,7 @@ void main() => runApp(
         home: HomePage(),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          brightness: Brightness.dark,
           primarySwatch: Colors.blue,
           primaryColor: Colors.blue,
           fontFamily: "Roboto",
