@@ -358,7 +358,7 @@ class _CreditCardPageState extends State<CreditCardPage> {
                     new SizedBox(
                       width: 5.0,
                     ),
-                    new Text("First"),
+                    new Text("Bank"),
                   ],
                 ),
                 Column(
@@ -369,7 +369,7 @@ class _CreditCardPageState extends State<CreditCardPage> {
                     new SizedBox(
                       width: 5.0,
                     ),
-                    new Text("First"),
+                    new Text("Settings"),
                   ],
                 )
               ],
