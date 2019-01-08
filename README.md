@@ -5,7 +5,7 @@
   
   Page Name | Pictures   
  --- | --- 
- [Home Page Dasboard Desing] | <img src="appimage/home.png" height= "400"/>
+ [Home Page Dasboard Desing] | <img src="appimage/homenew.png" height= "400"/>
  [Onboarding Desing Page with Tinder Animations] | <img src="appimage/onboarding.gif" height= "400"/>
  [Login Page Design Page] | <img src="appimage/loginpage.png" height= "400"/>
  [Credit Card Banking Page UI Desing] | <img src="appimage/credit_card.png" height= "400"/>
