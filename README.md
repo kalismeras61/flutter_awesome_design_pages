@@ -1,38 +1,19 @@
 # Amazing Flutter UI Desings
   
   This repo gives you amazing flutter ui desing! If you like desings please star to support me!
+  ### :heart: Star :heart: the repo to support the project or :smile:[Follow Me](https://github.com/kalismeras61). Thanks!
+  
+  Page Name | Pictures   
+ --- | --- 
+ [Home Page Dasboard Desing] | <img src="appimage/home.png" height= "400"/>
+ [Onboarding Desing Page with Tinder Animations] | <img src="appimage/onboarding.gif" height= "400"/>
+ [Login Page Design Page] | <img src="appimage/loginpage.png" height= "400"/>
+ [Credit Card Banking Page UI Desing] | <img src="appimage/credit_card.png" height= "400"/>
+ [Gift Card Page Desing] | <img src="appimage/giftcard.png" height= "400"/>
+ [Passcode Page Desing with full functionality! You can find as a package in pub.dartlang.com] | <img src="appimage/passcode.png" height= "400"/>
+ [Energy Meter Widget] | <img src="appimage/energymeter.png" height= "400"/>
+ [Circle Animated Wave Widget ] | <img src="appimage/wave.png" height= "400"/>
 
-# Home Page Dasboard Desing
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/home.png)
-
-# Onboarding Desing Page with Tinder Animations
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/onboarding.gif)
-
-# Login Page Design Page
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/loginpage.png)
-
-# Credit Card Banking UI Desing Page
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/credit_card.png)
-
-# Gift Card Page Desing
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/giftcard.png)
-
-# Passcode Page Desing with full functionality! You can find as a package in pub.dartlang.com
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/passcode.png)
-
-# Energy Meter Widget
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/energymeter.png)
-
-# Circle Animated Wave Widget 
-
-![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/wave.png)
 
 
 ## Getting Started
