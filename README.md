@@ -1,7 +1,9 @@
 # Amazing Flutter UI Desing
 
 ![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/home.png)
+![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/onboarding.gif)
 ![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/loginpage.png)
+![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/credit_card.png)
 ![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/giftcard.png)
 ![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/passcode.png)
 ![alt text](https://raw.githubusercontent.com/kalismeras61/flutter_card_desing/master/appimage/energymeter.png)
