@@ -4,6 +4,7 @@ import 'package:testapp/credit_card_page.dart';
 import 'package:testapp/custom_gift_card.dart';
 import 'package:testapp/energy_card.dart';
 import 'package:testapp/first_page.dart';
+import 'package:testapp/onboarding_page.dart';
 import 'package:testapp/pass_code_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -80,7 +81,17 @@ class HomePage extends StatelessWidget {
                 return CreditCardPage();
               }));
             },
-            "Login Page",
+            "Credit Card Page",
+          ),
+          buildCardWithIcon(
+            Icons.perm_device_information,
+            context,
+            () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return OnboardingPage();
+              }));
+            },
+            "Onboarding Page",
           ),
         ],
       ),

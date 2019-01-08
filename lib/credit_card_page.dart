@@ -129,84 +129,89 @@ class _CreditCardPageState extends State<CreditCardPage> {
                                       ),
                                     ),
                                     Expanded(
-                                        child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(15),
-                                          bottomRight: Radius.circular(15),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(15),
+                                            bottomRight: Radius.circular(15),
+                                          ),
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xFFff7052)
+                                                    .withOpacity(0.3),
+                                                Color(0xFFff7052),
+                                              ],
+                                              begin: Alignment.bottomLeft,
+                                              end: Alignment.topRight,
+                                              stops: [0, 1]),
                                         ),
-                                        gradient: LinearGradient(
-                                            colors: [
-                                              Color(0xFFff7052)
-                                                  .withOpacity(0.3),
-                                              Color(0xFFff7052),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 25.0, left: 20),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: <Widget>[
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Text(
+                                                    "Card Holder Name",
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      fontSize: 10,
+                                                      letterSpacing: 1,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    "Yasin ilhan",
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      letterSpacing: 1,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                width: 50,
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Text(
+                                                    "Expiry Date",
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      fontSize: 10,
+                                                      letterSpacing: 1,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    "05/25",
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      letterSpacing: 1.2,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ],
-                                            begin: Alignment.bottomLeft,
-                                            end: Alignment.topRight,
-                                            stops: [0, 1]),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 25.0, left: 20),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: <Widget>[
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "Card Holder Name",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w300,
-                                                    fontSize: 10,
-                                                    letterSpacing: 1,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Text(
-                                                  "Yasin ilhan",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 50,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  "Expiry Date",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w300,
-                                                    fontSize: 10,
-                                                    letterSpacing: 1,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Text(
-                                                  "05/25",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1.2,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                          ),
                                         ),
                                       ),
-                                    )),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -296,7 +301,7 @@ class _CreditCardPageState extends State<CreditCardPage> {
                           height: 25,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             iconCircle(Color(0xFFff7bbd), "Send Money",
                                 Icons.attach_money),
@@ -312,7 +317,7 @@ class _CreditCardPageState extends State<CreditCardPage> {
                           height: 20,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             iconCircle(
                                 Color(0xFF93dfdf), "Up Coming", Icons.update),
