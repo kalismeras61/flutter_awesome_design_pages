@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/animated_wave_card.dart';
+import 'package:testapp/colored_card_page.dart';
 import 'package:testapp/credit_card_page.dart';
 import 'package:testapp/custom_gift_card.dart';
 import 'package:testapp/energy_card.dart';
@@ -93,6 +94,16 @@ class HomePage extends StatelessWidget {
             },
             "Onboarding Page",
           ),
+          buildCardWithIcon(
+            Icons.card_travel,
+            context,
+            () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ColoredCardPage();
+              }));
+            },
+            "Colored Card Page",
+          )
         ],
       ),
     );
