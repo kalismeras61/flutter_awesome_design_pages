@@ -8,9 +8,7 @@ import 'package:flutter/foundation.dart'
 
 void main() {
   _setTargetPlatformForDesktop();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.orange, //or set color with: Color(0xFF0000FF)
-  ));
+
   runApp(
     MaterialApp(
       home: HomePage(),

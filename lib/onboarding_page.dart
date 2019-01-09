@@ -8,6 +8,7 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
   SwiperController _swiperController;
+  double prevOpacity = 1.0;
 
   @override
   void initState() {
@@ -51,6 +52,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Swiper(
                 controller: _swiperController,
                 itemCount: swiperItemsList.length,
+                onIndexChanged: (int value) {
+                  if (value == 2) {
+                    setState(() {
+                      prevOpacity = 0.0;
+                    });
+                  } else {
+                    setState(() {
+                      prevOpacity = 1.0;
+                    });
+                  }
+                },
                 itemWidth: MediaQuery.of(context).size.width,
                 itemHeight: MediaQuery.of(context).size.height / 1.5,
                 itemBuilder: (BuildContext context, index) {
@@ -85,14 +97,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
               onTap: () {
                 print("prev");
                 _swiperController.previous(animation: true);
+                print(_swiperController.index.toString());
+                setState(() {
+                  prevOpacity = 0.0;
+                });
               },
-              child: Text(
-                "PREV",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
+              child: Opacity(
+                opacity: prevOpacity,
+                child: Text(
+                  "PREV",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
