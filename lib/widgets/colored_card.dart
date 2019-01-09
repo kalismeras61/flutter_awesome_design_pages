@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class ColoredCard extends StatefulWidget {
   final double cardHeight;
   final double padding;
+  final double elevation;
   final bool showHeader;
   final bool showFooter;
   final Widget bodyContent;
@@ -29,7 +30,8 @@ class ColoredCard extends StatefulWidget {
       this.headerColor,
       this.bodyColor,
       this.footerColor,
-      this.borderRadius,
+      this.borderRadius = 0.0,
+      this.elevation = 0.0,
       this.cardHeight = 200,
       this.padding = 20})
       : super(
@@ -42,65 +44,69 @@ class ColoredCard extends StatefulWidget {
 class _ColoredCardState extends State<ColoredCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.cardHeight,
-      width: MediaQuery.of(context).size.width - widget.padding,
-      decoration: BoxDecoration(
-        color: widget.bodyColor,
-        borderRadius: BorderRadius.circular(widget.borderRadius),
-        gradient: widget.bodyGradient,
-      ),
-      child: Stack(
-        fit: StackFit.expand,
-        alignment: Alignment.center,
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              widget.showHeader
-                  ? HeaderBar(
-                      title: widget.headerBar.title,
-                      action: widget.headerBar.action,
-                      centerMiddle: widget.headerBar.centerMiddle,
-                      backgroundColor: widget.headerColor,
-                      leading: widget.headerBar.leading,
-                      borderRadius: widget.borderRadius,
-                      padding: widget.padding,
-                    )
-                  : Container(),
-              Expanded(
-                child: Container(
-                  width: MediaQuery.of(context).size.width - widget.padding,
-                  child: widget.bodyContent,
+    return Material(
+      elevation: widget.elevation,
+      borderRadius: BorderRadius.circular(widget.borderRadius),
+      child: Container(
+        height: widget.cardHeight,
+        width: MediaQuery.of(context).size.width - widget.padding,
+        decoration: BoxDecoration(
+          color: widget.bodyColor,
+          borderRadius: BorderRadius.circular(widget.borderRadius),
+          gradient: widget.bodyGradient,
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          alignment: Alignment.center,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                widget.showHeader
+                    ? HeaderBar(
+                        title: widget.headerBar.title,
+                        action: widget.headerBar.action,
+                        centerMiddle: widget.headerBar.centerMiddle,
+                        backgroundColor: widget.headerColor,
+                        leading: widget.headerBar.leading,
+                        borderRadius: widget.borderRadius,
+                        padding: widget.padding,
+                      )
+                    : Container(),
+                Expanded(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width - widget.padding,
+                    child: widget.bodyContent,
+                  ),
                 ),
+                widget.showFooter
+                    ? FooterBar(
+                        title: widget.footerBar.title,
+                        action: widget.footerBar.action,
+                        centerMiddle: widget.footerBar.centerMiddle,
+                        backgroundColor: widget.footerColor,
+                        leading: widget.footerBar.leading,
+                        borderRadius: widget.borderRadius,
+                        padding: widget.padding,
+                      )
+                    : Container(),
+              ],
+            ),
+            ClipPath(
+              clipper: ColoredCardClipperSecond(),
+              child: Container(
+                color: Colors.white.withOpacity(0.05),
+                height: widget.cardHeight,
               ),
-              widget.showFooter
-                  ? FooterBar(
-                      title: widget.footerBar.title,
-                      action: widget.footerBar.action,
-                      centerMiddle: widget.footerBar.centerMiddle,
-                      backgroundColor: widget.footerColor,
-                      leading: widget.footerBar.leading,
-                      borderRadius: widget.borderRadius,
-                      padding: widget.padding,
-                    )
-                  : Container(),
-            ],
-          ),
-          ClipPath(
-            clipper: ColoredCardClipperSecond(),
-            child: Container(
-              color: Colors.white.withOpacity(0.05),
-              height: widget.cardHeight,
             ),
-          ),
-          ClipOval(
-            clipper: ColoredCardClipperFirst(widget.cardHeight),
-            child: Container(
-              color: Colors.white.withOpacity(0.05),
-              height: widget.cardHeight,
+            ClipOval(
+              clipper: ColoredCardClipperFirst(widget.cardHeight),
+              child: Container(
+                color: Colors.white.withOpacity(0.05),
+                height: widget.cardHeight,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

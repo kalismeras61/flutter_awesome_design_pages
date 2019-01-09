@@ -23,7 +23,8 @@ class ColoredCardPage extends StatelessWidget {
               headerColor: Color(0xFF6078dc),
               footerColor: Color(0xFF6078dc),
               cardHeight: 250,
-              borderRadius: 10,
+              //borderRadius: 10,
+              elevation: 4,
               bodyColor: Color(0xFF6c8df6),
               showFooter: true,
               bodyGradient: LinearGradient(
@@ -147,7 +148,7 @@ class ColoredCardPage extends StatelessWidget {
               headerColor: Color(0xFF4581c0),
               footerColor: Color(0xFF6078dc),
               cardHeight: 250,
-              borderRadius: 10,
+              borderRadius: 30,
               bodyColor: Color(0xFF6c8df6),
               showFooter: false,
               bodyGradient: LinearGradient(
