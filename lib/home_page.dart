@@ -5,6 +5,7 @@ import 'package:testapp/credit_card_page.dart';
 import 'package:testapp/custom_gift_card.dart';
 import 'package:testapp/energy_card.dart';
 import 'package:testapp/first_page.dart';
+import 'package:testapp/login/otp_login.dart';
 import 'package:testapp/onboarding_page.dart';
 import 'package:testapp/pass_code_page.dart';
 
@@ -107,6 +108,20 @@ class HomePage extends StatelessWidget {
               );
             },
             "Colored Card Page",
+          ),
+          buildCardWithIcon(
+            Icons.textsms,
+            context,
+            () {
+              Navigator.of(context).pushReplacement(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return new OtpLoginPage();
+                  },
+                ),
+              );
+            },
+            "OTP Login Page",
           )
         ],
       ),
