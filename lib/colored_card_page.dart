@@ -9,19 +9,7 @@ class ColoredCardPage extends StatefulWidget {
 }
 
 class ColoredCardPageState extends State<ColoredCardPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String _selectedChoice;
-  List<String> _menuItems = [
-    "Go Home",
-    "Go Another Page",
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedChoice = _menuItems[0];
-  }
-
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,9 +60,16 @@ class ColoredCardPageState extends State<ColoredCardPage> {
                       fontSize: 16,
                       fontFamily: "Poppins"),
                 ),
-                leading: Icon(
-                  Icons.refresh,
-                  color: Colors.white,
+                leading: IconButton(
+                  icon: Icon(
+                    Icons.refresh,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text('Hello!'),
+                    ));
+                  },
                 ),
                 action: PopupMenuButton<String>(
                   icon: Icon(Icons.menu),
@@ -432,11 +427,30 @@ class ColoredCardPageState extends State<ColoredCardPage> {
 
   void choiceAction(String choice) {
     if (choice == Constants.Settings) {
-      print('Settings');
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text(
+          Constants.Settings,
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+      ));
     } else if (choice == Constants.Subscribe) {
-      print('Subscribe');
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text(
+          Constants.Subscribe,
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+      ));
     } else if (choice == Constants.SignOut) {
-      print('SignOut');
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        duration: Duration(milliseconds: 200),
+        content: Text(
+          Constants.SignOut,
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+      ));
     }
   }
 }
