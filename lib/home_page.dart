@@ -98,9 +98,13 @@ class HomePage extends StatelessWidget {
             Icons.card_travel,
             context,
             () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return ColoredCardPage();
-              }));
+              Navigator.of(context).pushReplacement(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return new ColoredCardPage();
+                  },
+                ),
+              );
             },
             "Colored Card Page",
           )

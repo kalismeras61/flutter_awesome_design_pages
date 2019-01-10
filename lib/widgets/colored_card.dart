@@ -20,7 +20,7 @@ class ColoredCard extends StatefulWidget {
 
   ColoredCard(
       {Key key,
-      this.showHeader = true,
+      this.showHeader = false,
       this.showFooter = false,
       this.bodyContent,
       this.bodyGradient,
@@ -33,7 +33,7 @@ class ColoredCard extends StatefulWidget {
       this.borderRadius = 0.0,
       this.elevation = 0.0,
       this.cardHeight = 200,
-      this.padding = 20})
+      this.padding = 10})
       : super(
           key: key,
         );
@@ -44,68 +44,65 @@ class ColoredCard extends StatefulWidget {
 class _ColoredCardState extends State<ColoredCard> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: widget.elevation,
-      borderRadius: BorderRadius.circular(widget.borderRadius),
-      child: Container(
-        height: widget.cardHeight,
-        width: MediaQuery.of(context).size.width - widget.padding,
-        decoration: BoxDecoration(
-          color: widget.bodyColor,
-          borderRadius: BorderRadius.circular(widget.borderRadius),
-          gradient: widget.bodyGradient,
-        ),
-        child: Stack(
-          fit: StackFit.expand,
-          alignment: Alignment.center,
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                widget.showHeader
-                    ? HeaderBar(
-                        title: widget.headerBar.title,
-                        action: widget.headerBar.action,
-                        centerMiddle: widget.headerBar.centerMiddle,
-                        backgroundColor: widget.headerColor,
-                        leading: widget.headerBar.leading,
-                        borderRadius: widget.borderRadius,
-                        padding: widget.padding,
-                      )
-                    : Container(),
-                Expanded(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width - widget.padding,
-                    child: widget.bodyContent,
+    return Container(
+      padding: EdgeInsets.only(left: widget.padding, right: widget.padding),
+      child: Material(
+        type: MaterialType.card,
+        elevation: widget.elevation,
+        borderRadius: BorderRadius.circular(widget.borderRadius),
+        child: Container(
+          height: widget.cardHeight,
+          decoration: BoxDecoration(
+            color: widget.bodyColor,
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            gradient: widget.bodyGradient,
+          ),
+          child: Stack(
+            fit: StackFit.expand,
+            alignment: Alignment.center,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  widget.showHeader
+                      ? HeaderBar(
+                          title: widget.headerBar.title,
+                          action: widget.headerBar.action,
+                          centerMiddle: widget.headerBar.centerMiddle,
+                          backgroundColor: widget.headerColor,
+                          leading: widget.headerBar.leading,
+                          borderRadius: widget.borderRadius,
+                          padding: widget.padding,
+                        )
+                      : Container(),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width - widget.padding,
+                      child: widget.bodyContent,
+                    ),
                   ),
+                  widget.showFooter
+                      ? FooterBar(
+                          title: widget.footerBar.title,
+                          action: widget.footerBar.action,
+                          centerMiddle: widget.footerBar.centerMiddle,
+                          backgroundColor: widget.footerColor,
+                          leading: widget.footerBar.leading,
+                          borderRadius: widget.borderRadius,
+                          padding: widget.padding,
+                        )
+                      : Container(),
+                ],
+              ),
+              ClipOval(
+                clipper: ColoredCardClipperFirst(widget.cardHeight),
+                child: Container(
+                  color: Colors.white.withOpacity(0.05),
+                  height: widget.cardHeight,
                 ),
-                widget.showFooter
-                    ? FooterBar(
-                        title: widget.footerBar.title,
-                        action: widget.footerBar.action,
-                        centerMiddle: widget.footerBar.centerMiddle,
-                        backgroundColor: widget.footerColor,
-                        leading: widget.footerBar.leading,
-                        borderRadius: widget.borderRadius,
-                        padding: widget.padding,
-                      )
-                    : Container(),
-              ],
-            ),
-            ClipPath(
-              clipper: ColoredCardClipperSecond(),
-              child: Container(
-                color: Colors.white.withOpacity(0.05),
-                height: widget.cardHeight,
               ),
-            ),
-            ClipOval(
-              clipper: ColoredCardClipperFirst(widget.cardHeight),
-              child: Container(
-                color: Colors.white.withOpacity(0.05),
-                height: widget.cardHeight,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -132,7 +129,7 @@ class HeaderBar extends StatelessWidget implements PreferredSizeWidget {
     this.borderRadius,
     this.padding,
     this.gradient,
-  }) : assert(title != null);
+  });
   @override
   Widget build(BuildContext context) {
     const double _kLeadingWidth = kToolbarHeight;
@@ -155,7 +152,7 @@ class HeaderBar extends StatelessWidget implements PreferredSizeWidget {
           child: leading,
         ),
         centerMiddle: centerMiddle,
-        middle: title,
+        middle: title != null ? title : "null",
         trailing: Container(
           height: kToolbarHeight - 15,
           width: _kLeadingWidth,
@@ -211,7 +208,7 @@ class FooterBar extends StatelessWidget implements PreferredSizeWidget {
           child: leading,
         ),
         centerMiddle: centerMiddle,
-        middle: title,
+        middle: title != null ? title : "null",
         trailing: Container(
           height: kToolbarHeight - 15,
           width: _kLeadingWidth,
@@ -231,14 +228,15 @@ class ColoredCardClipperFirst extends CustomClipper<Rect> {
 
   @override
   Rect getClip(Size size) {
-    Rect rect = Rect.fromCircle(center: Offset(0, size.height), radius: radius);
+    Rect rect =
+        Rect.fromCircle(center: Offset(-20, size.height + 40), radius: radius);
 
     return rect;
   }
 
   @override
   bool shouldReclip(CustomClipper<Rect> oldClipper) {
-    return false;
+    return true;
   }
 }
 
@@ -246,7 +244,7 @@ class ColoredCardClipperSecond extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final Path path = Path();
-    path.moveTo(size.width * 0.7, 0);
+    path.moveTo(size.width * 0.7, size.height * .8);
     path.lineTo(size.width, size.height * 0.5);
     path.lineTo(size.width, 0);
     path.close();
