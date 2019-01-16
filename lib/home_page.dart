@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/animated_wave_card.dart';
+import 'package:testapp/circle_progress_bar_page.dart';
 import 'package:testapp/colored_card_page.dart';
 import 'package:testapp/credit_card_page.dart';
 import 'package:testapp/custom_gift_card.dart';
@@ -117,6 +118,20 @@ class HomePage extends StatelessWidget {
                 new MaterialPageRoute(
                   builder: (BuildContext context) {
                     return new OtpLoginPage();
+                  },
+                ),
+              );
+            },
+            "OTP Login Page",
+          ),
+          buildCardWithIcon(
+            Icons.play_circle_filled,
+            context,
+            () {
+              Navigator.of(context).pushReplacement(
+                new MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return new ProgressBarPage();
                   },
                 ),
               );

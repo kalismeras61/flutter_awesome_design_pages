@@ -9,9 +9,6 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
   TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final _media = MediaQuery.of(context).size;
-    final _pixel = MediaQuery.of(context).devicePixelRatio;
-    print(_pixel);
     return Scaffold(
       resizeToAvoidBottomPadding: true,
       backgroundColor: Colors.white,
@@ -75,12 +72,13 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                         padding: EdgeInsets.all(4),
                         width: MediaQuery.of(context).size.width - 80,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                              color: Colors.grey,
-                              width: 1,
-                              style: BorderStyle.solid,
-                            )),
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 1,
+                            style: BorderStyle.solid,
+                          ),
+                        ),
                         child: TextField(
                           controller: _controller,
                           textAlign: TextAlign.center,
