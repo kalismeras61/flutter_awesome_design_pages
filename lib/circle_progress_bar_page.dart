@@ -24,10 +24,11 @@ class ProgressBarState extends State<ProgressBarPage> {
             style: TextStyle(fontSize: 20.0),
           ),
           CircleProgressBar(
-            radius: 120.0,
-            dotColor: Colors.pink,
-            dotRadius: 18.0,
+            radius: 150.0,
+            dotColor: Colors.greenAccent,
+            dotRadius: 10.0,
             shadowWidth: 2.0,
+            dotEdgeColor: Colors.greenAccent,
             progress: 0.0,
             progressChanged: (value) {
               setState(() {

@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            "OTP Login Page",
+            "Circle Progress Bar",
           )
         ],
       ),
