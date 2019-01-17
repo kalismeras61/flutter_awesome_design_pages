@@ -15,7 +15,7 @@
  [Passcode Page Design with full functionality! You can find as a package in pub.dartlang.com] | <img src="appimage/passcode.gif" height= "400"/>
  [Energy Meter Widget] | <img src="appimage/energymeter.png" height= "400"/>
  [Circle Animated Wave Widget ] | <img src="appimage/wave.png" height= "400"/>
- [Circle Progress Bar] | <img src="appimage/circle_progressbar.png" height= "400"/>
+ [Circle Progress Bar] | <img src="appimage/circle_progressbar.gif" height= "400"/>
  
 
 
