@@ -1,6 +1,6 @@
-# Amazing Flutter UI Desings
+# Amazing Flutter UI Designs
   
-  This repo gives you amazing flutter ui design! If you like desings please star to support me!
+  This repo gives you amazing flutter ui design! If you like designs please star to support me!
   ### :heart: Star :heart: the repo to support the project or :smile:[Follow Me](https://github.com/kalismeras61). Thanks!
   
   Page Name | Pictures   
